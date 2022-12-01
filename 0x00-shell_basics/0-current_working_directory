@@ -1,4 +1,2 @@
 #!/bin/bash
-#prints the absolute path name of the currrnet working directory
 echo 'pwd'
-
