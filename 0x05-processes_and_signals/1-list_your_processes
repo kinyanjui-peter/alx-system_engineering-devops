@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # This script displays a list of currently running processes
-ps -e -o user=USER,pid=PID,%cpu=%CPU,%mem=%MEM,vsz=VSZ,rss=RSS,tty=TTY,stat=STAT,start=START,time=TIME,cmd=COMMAND
+ps -eo user=USER,pid=PID,%cpu=%CPU,%mem=%MEM,vsz=VSZ,rss=RSS,tty=TTY,stat=STAT,start=START,time=TIME,cmd=COMMAND
