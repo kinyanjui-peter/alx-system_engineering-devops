@@ -1,1 +1,5 @@
 #!/usr/bin/env bash
+# Internet Control Message Protocol(ICMP) ising ping as arguments.
+
+ip_add="$1"
+ping -c 5 "$ip_add"
