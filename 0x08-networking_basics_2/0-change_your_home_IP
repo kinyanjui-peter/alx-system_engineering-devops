@@ -5,8 +5,4 @@ if [ -f /.dockerenv ]; then
     echo "127.0.0.2 localhost" >> /etc/hosts
     #add mapping for facebook
     echo "8.8.8.8 facebook.com" >> /etc/hosts
-<<<<<<< HEAD
 fi
-=======
-fi
->>>>>>> f24269e9f8026c0ec4f6609bf760dd43d853537d
