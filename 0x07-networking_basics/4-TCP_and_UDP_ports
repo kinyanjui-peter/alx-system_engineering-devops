@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # using netstat to display listening ports
-echo 'Active Internet connections (only servers)'
-netstat -lp
+
+
+sudo netstat -lp
