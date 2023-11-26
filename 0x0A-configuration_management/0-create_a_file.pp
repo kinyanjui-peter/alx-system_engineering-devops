@@ -6,9 +6,10 @@
 # File group is www-data
 # File contains I love Puppet
 
-file {'/tmp/school':
-  ensure    => 'file',
-  mode      => '0744',
-  owner     => 'www-data',
-  content   => 'www-data',
+file { '/tmp/school':
+  ensure  => 'file',
+  mode    => '0744',
+  group   => 'www-data',
+  owner   => 'www-data',
+  content => 'I love Puppet',
 }
