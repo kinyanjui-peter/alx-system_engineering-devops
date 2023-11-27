@@ -2,8 +2,7 @@
 # Must use the exec Puppet resource
 # Must use pkill
 
-$process_name = killmenow,
 exec { 'killing':
-  command => '/usr/bin/pkill ${process_name}",
-  unless  => '/usr/bin/pgrep -f ${process_name}}",
+  command => '/usr/bin/pkill killmenow',
+  onlyif  => '/usr/bin/pgrep -f "killmenow"',
 } 
