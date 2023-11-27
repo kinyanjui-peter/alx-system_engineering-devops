@@ -1,3 +1,4 @@
+#!/usr/bin/env puppet apply
 # 2-execute_a_command.pp
 #create a manifest that kills a process named killmenow
 # Must use the exec Puppet resource
