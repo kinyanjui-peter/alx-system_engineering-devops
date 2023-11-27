@@ -1,18 +1,14 @@
 # install frask 2.1.0 from pip3 
-class python3 {
-  package { 'python3':
-    ensure => installed,
-  }
+class { 'python3':
+  version => 'system',
 }
 
-include python3
+package { 'python3-pip':
+  ensure  => installed,
+}
   
 exec { 'install_flask':
-  command   => '/mnt/c/Python311/Scripts/pip3 install flask==2.1.0',
-  unless    => '/mnt/c/Python311/Scripts/pip3 flask | grep -q "Version: 2.1.0"',
-}
-
-package { 'flask':
-  ensure   => '2.1.0',
-  provider => 'pip3',
+  command   => '/usr/bin/pip3 install flask==2.1.0',
+  unless    => '/usr/bin/pip3 flask | grep -q "Version: 2.1.0"',
+  require   => package['python3-pip'],
 }
