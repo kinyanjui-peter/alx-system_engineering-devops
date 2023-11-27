@@ -4,6 +4,5 @@
 # Must use pkill
 
 exec { 'killmenow':
-  command => '/usr/bin/pkill killmenow',
-  onlyif  => '/usr/bin/pgrep -f "killmenow"',
+  command => 'usr/bin/pkill killmenow',
 } 
