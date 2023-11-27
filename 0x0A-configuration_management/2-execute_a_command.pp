@@ -3,6 +3,7 @@
 # Must use the exec Puppet resource
 # Must use pkill
 
-exec { 'killmenow':
-  command => 'usr/bin/pkill killmenow',
+exec { 'killng':
+  command => 'pkill -f killmenow',
+  onlyif  => 'pgrep -f killmenow',
 } 
