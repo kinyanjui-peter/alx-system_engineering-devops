@@ -1,6 +1,6 @@
 # install frask 2.1.0 from pip3 
 class {'python3':
-  ensure => insted,
+  ensure => installed,
 }
   
 exec { 'install_flask':
