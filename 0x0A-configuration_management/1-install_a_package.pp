@@ -1,12 +1,12 @@
 # install frask 2.1.0 from pip3 
 
 
-class { 'python':
+class { 'python3':
   version => 'system',
 }
 
 exec { 'install_flask':
-  command => '/usr/bin/pip3 install Flask==2.1.0',
-  path    => '/usr/local/bin',
-  unless  => '/usr/bin/pip3 show Flask | grep -q "Version: 2.1.0"',
+  command => '/mnt/c/Python311/Scripts/pip3 install Flask==2.1.0',
+  path    => '/usr/bin/python3.8',
+  unless  => '/mnt/c/Python311/Scripts/pip3 show Flask | grep -q "Version: 2.1.0"',
 }
