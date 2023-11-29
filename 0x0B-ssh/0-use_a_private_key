@@ -10,4 +10,4 @@ server_ip='172.21.29.77'
 username='ubuntu'
 private_key='~/.ssh/school'
 
-ssh -i  "$private_key" "$username" @"$server_ip"
+ssh "$username"@"$server_ip"-i "$private_key"
