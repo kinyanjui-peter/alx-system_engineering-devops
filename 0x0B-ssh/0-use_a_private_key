@@ -6,8 +6,8 @@
 # You do not need to handle the case of a private key protected
 # by a passphrase
 
-server_ip='172.21.29.77'
+server_ip='18.209.223.78'
 username='ubuntu'
 private_key='~/.ssh/school'
 
-ssh "$username"@"$server_ip"-i "$private_key"
+ssh "$username"@"$server_ip"-i $private_key"
