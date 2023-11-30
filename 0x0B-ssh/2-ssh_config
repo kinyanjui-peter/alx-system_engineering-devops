@@ -1,0 +1,13 @@
+H configuration file for the local SSH client to our needs
+#  so that you can connect to a server without typing a password.
+
+Host *
+
+    HostName 18.209.223.78
+    SendEnv LANG LC_*
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
