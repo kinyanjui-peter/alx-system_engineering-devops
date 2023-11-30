@@ -8,4 +8,4 @@ private_key="school"
 size="4096"
 passphrase="betty"
 
-ssh-keygen -t RSA -b "$size" -f "$private_key" -N "passphrase" 
+ssh-keygen -t rsa -b "$size" -f "$private_key" -N "$passphrase" 
