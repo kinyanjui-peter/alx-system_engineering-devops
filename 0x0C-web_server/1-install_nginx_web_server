@@ -8,9 +8,10 @@ sudo apt-get -y install nginx
 # configuring to allow incoming traffic
 sudo ufw allow 'nginx HTTP'
 # creating an index.html page
-echo "Hello World!" | sudo tee /var/www/html/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html && sudo sed -i 's/\(listen\s*80;\)/\1 listen 80;/'
 
 # testing nginx configuration syntax
+
 sudo nginx -t
 
 #reload and apply changes
