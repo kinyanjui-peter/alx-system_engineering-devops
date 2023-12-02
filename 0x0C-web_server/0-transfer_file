@@ -9,13 +9,13 @@ then
 fi
 
 # assign parameter to variables
-transfer_file="$1"
-server_ip="$2"
-private_key="$3"
-username="$4"
+path_to_file="$1"
+ip="$2"
+username="$3"
+path_to_ssh_key="$4"
 
 # use scp; to transfer file to server through ssh
-scp -o StrictHostKeyChecking=no -i "$private_key" "$transfer_file" "$username"@"$server_ip"
+scp -o "StrictHostKeyChecking no" -i "$path_to_ssh_key" "$path_to_file" "$username@$ip:~/"
 # rechecking if the transfer file was successful
 if [ $? -eq 0 ]
 then 
