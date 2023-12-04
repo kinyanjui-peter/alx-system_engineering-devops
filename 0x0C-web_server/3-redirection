@@ -1,0 +1,28 @@
+#install_nginx_web_server.sh
+# This script installs Nginx on an Ubuntu machine.
+
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# 3-redirection.sh
+# This script configures Nginx to perform a 301 redirect for /redirect_me.
+
+# Set the redirect destination URL
+redirect_destination="https://example.com/new_page"
+
+# Create a backup of the default Nginx configuration file
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
+
+# Use sed to replace the default server block configuration with the redirection
+sudo sed -i '/server {/a \
+    location \/redirect_me {\
+        return 301 '$redirect_destination';\
+    }' /etc/nginx/sites-available/default
+
+# Test Nginx configuration
+sudo nginx -t
+
+# Reload Nginx to apply changes
+sudo service nginx reload
+
+echo "Nginx configured for redirection. /redirect_me now redirects to $redirect_destination with a 301 Moved Permanently status."
