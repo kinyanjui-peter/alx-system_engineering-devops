@@ -1,0 +1,28 @@
+#install HAProxy
+sudo apt-get update
+sudo apt-get install -y haproxy
+
+# Set hostname for web-01
+echo '206429-web-01' | sudo tee /etc/hostname
+sudo hostnamectl set-hostname 206429-web-01
+
+# Set hostname for web-02
+echo '206429-web-02' | sudo tee /etc/hostname
+sudo hostnamectl set-hostname 206429-web-02
+
+# Configure HAProxy
+sudo tee /etc/haproxy/haproxy.cfg > /dev/null <<EOF
+frontend hapfront
+    bind *:80
+    mode http
+    default_backend hapset
+
+backend hapset
+    mode http
+    balance roundrobin
+    server web-01 100.26.241.49:80 check
+    server web-02 54.145.241.161:80 check
+EOF
+
+# Restart HAProxy to apply changes
+sudo service haproxy restart
