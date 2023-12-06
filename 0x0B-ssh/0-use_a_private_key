@@ -7,7 +7,7 @@
 # You do not need to handle the case of a private key protected
 # by a passphrase
 
-server_ip='18.209.223.78'
+server_ip='100.26.241.49'
 username='ubuntu'
 private_key='~/.ssh/school'
 
