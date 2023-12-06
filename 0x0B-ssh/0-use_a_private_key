@@ -2,6 +2,6 @@
 # Bash script that uses ssh to connect to your server using the private key
 server_ip='18.234.130.46'
 username='ubuntu'
-private_key='-i~/.ssh/school'
+private_key='-i ~/.ssh/school'
 
 ssh "$private_key" "$username"@"$server_ip"
