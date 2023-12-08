@@ -1,28 +1,20 @@
-#install_nginx_web_server.sh
-# This script installs Nginx on an Ubuntu machine.
+#!/usr/bin/env bash
+#install nginx on your web-01
 
 sudo apt-get update
-sudo apt-get install -y nginx
+sudo apt-get -y install nginx
+# get hostname
+hostname=$(hostname)
 
-# 3-redirection.sh
-# This script configures Nginx to perform a 301 redirect for /redirect_me.
+# configuring to allow incoming traffic, allow both HTTP and HTTPS(full)
+sudo ufw allow 'nginx HTTP'
+# creating an index.html page
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.html'
+sudo sed -i '/listen\s*80;/a \\nserver {\n listen 80;\n server_name _;\n location /redirect_me {\n return 301 https://www.youtube.com/watch?v=7VAI73roXaY;\n }\n}' /etc/nginx/sites-available/default
 
-# Set the redirect destination URL
-redirect_destination="https://example.com/new_page"
-
-# Create a backup of the default Nginx configuration file
-sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
-
-# Use sed to replace the default server block configuration with the redirection
-sudo sed -i '/server {/a \
-    location \/redirect_me {\
-        return 301 '$redirect_destination';\
-    }' /etc/nginx/sites-available/default
-
-# Test Nginx configuration
+#sudo sed -i 's/\(listen\s*80;\)/\1 listen 80;/' /etc/nginx/sites-available/default 
+# testing nginx configuration syntax
 sudo nginx -t
 
-# Reload Nginx to apply changes
+#reload and apply changes
 sudo service nginx reload
-
-echo "Nginx configured for redirection. /redirect_me now redirects to $redirect_destination with a 301 Moved Permanently status."
