@@ -4,7 +4,7 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 # get hostname
-hostname=$(hostname)
+#hostname=$(hostname)
 
 # configuring to allow incoming traffic, allow both HTTP and HTTPS(full)
 sudo ufw allow 'nginx HTTP'
