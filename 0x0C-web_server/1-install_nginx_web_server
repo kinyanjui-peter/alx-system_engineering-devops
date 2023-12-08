@@ -9,13 +9,8 @@ hostname=$(hostname)
 # configuring to allow incoming traffic, allow both HTTP and HTTPS(full)
 sudo ufw allow 'nginx HTTP'
 # creating an index.html page
-echo "Hello World!" | sudo tee /var/www/html/index.html
-
-#update the default nginx configuration file
-sudo sed -i 's/\(listen\s*80;\)/\1 listen 80;/' /etc/nginx/sites-available/default
-
-#set the X-served-By header
-sudo bash -c "echo 'add_header X-Served-By $hostname;' > /etc/nginx/sites-available/default"
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.html' 
+sudo sed -i 's/\(listen\s*80;\)/\1 listen 80;/' /etc/nginx/sites-available/default 
 # testing nginx configuration syntax
 sudo nginx -t
 
