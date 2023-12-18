@@ -1,0 +1,11 @@
+#command to block all incoming traffic
+sudo ufw default deny incoming
+
+#command to allow ssh(22)
+sudo ufw allow ssh
+
+#command to allow HTTPS SSL(443)
+sudo ufw allow https
+
+#command to allow 
+sudo ufw allow http
