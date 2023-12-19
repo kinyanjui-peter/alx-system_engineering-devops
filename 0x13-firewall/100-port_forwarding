@@ -1,0 +1,1 @@
+sudo ufw route from any to any port 8080 proto tcp redirect to :80
