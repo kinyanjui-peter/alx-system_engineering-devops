@@ -3,10 +3,6 @@
 # Start Apache service
 service apache2 start
 
-# Check if Apache is running
-if service apache2 status | grep -q "active (running)"; then
-	echo "apache2 is running"
-else
-	echo "apache2 is not running"
-fi
 sudo docker exec -it d64ed88efc6b /bin/bash
+
+exit
