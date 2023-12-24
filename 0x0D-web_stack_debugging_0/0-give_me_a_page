@@ -1,2 +1,2 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 sudo docker exec -it d64ed88efc6b /bin/bash
