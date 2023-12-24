@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+#apache2 is running
 sudo docker exec -it d64ed88efc6b /bin/bash
