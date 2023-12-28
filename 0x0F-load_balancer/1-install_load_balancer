@@ -29,6 +29,6 @@ backend hapset
 EOF
 # Add your HAProxy configuration to haproxy.cfg
 sudo cp -a /etc/haproxy/haproxy.cfg{,.orig}
-sudo echo "$balancer" >> /etc/haproxy/haproxy.cfg
+
 # Restart HAProxy to apply changes
 sudo service haproxy restart
