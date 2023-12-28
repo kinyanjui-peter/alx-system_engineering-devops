@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+#
 #install HAProxy
 sudo apt-get update
 sudo apt-get install -y haproxy
@@ -22,8 +24,8 @@ frontend hapfront
 backend hapset
     mode http
     balance roundrobin
-    server 206429-web-01 100.26.241.49:80 check
-    server 206429-web-02 54.145.241.161:80 check
+    server 206429-web-01 34.207.58.78:80 check
+    server 206429-web-02 18.209.225.212:80 check
 EOF
 # Add your HAProxy configuration to haproxy.cfg
 sudo cp -a /etc/haproxy/haproxy.cfg{,.orig}
