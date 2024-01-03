@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+import requests 
 import sys
-import requests
 """Python script that, using this REST API, for a given employee ID,
         returns information about his/her TODO list progress.
     ou must use urllib or requests module
