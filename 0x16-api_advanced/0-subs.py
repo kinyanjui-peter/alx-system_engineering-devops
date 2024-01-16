@@ -8,12 +8,10 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    response = requests.get("https://www.reddit.com/r/{subreddit}/about.json")
+    response = requests.get(f"https://www.reddit.com/r/{subreddit}/about.json")
     if response.status_code == 200:
-        data = response.json()
-        total_subscribers = data["data"]["subscribers"]
+        data = response.json().get('data', {})
+        total_subscribers = data.get("subscribers", 0)
         return total_subscribers
-    elif response.status_code == 404:
-        return f"data not found"
     else:
         return 0
