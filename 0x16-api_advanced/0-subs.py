@@ -6,6 +6,7 @@ invalid subreddit is given, the function should return 0.
 """
 import requests
 
+
 def number_of_subscribers(subreddit):
     response = requests.get("https://www.reddit.com/r/{subreddit}/about.json")
     if response.status_code == 200:
@@ -14,6 +15,5 @@ def number_of_subscribers(subreddit):
         return total_subscribers
     elif response.status_code == 404:
         return f"data not found"
-    else: 
+    else:
         return 0
-        
