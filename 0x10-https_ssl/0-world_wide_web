@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 #take domain' and 'subdomain' parameters and display information for the specified subdomain
 display_info() {
     local domain=$1
