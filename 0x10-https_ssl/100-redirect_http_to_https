@@ -1,3 +1,4 @@
+# /etc/haproxy/haproxy.cfg
 
 global
     log /dev/log local0
@@ -18,26 +19,31 @@ defaults
     timeout client 50000
     timeout server 50000
 
-frontend http_front
-    bind *:80
+frontend http_frontend
+    bind :80
     mode http
     option forwardfor
     option http-server-close
-    redirect scheme https code 301 if !{ ssl_fc }
+    option http-pretend-keepalive
 
-frontend https_front
-    bind *:443 ssl crt /etc/ssl/certs/meldev.tech.pem
-    mode http
-    option forwardfor
-    option http-server-close
-    reqadd X-Forwarded-Proto:\ https
+    acl is_http_request hdr(Host) -i meldevtech.tech
 
-    # Add your backend server configurations here
-    default_backend my_backend
+    redirect scheme https code 301 if is_http_request
 
-backend my_backend
+backend https_backend
     mode http
     balance roundrobin
-    server web-01 18.234.130.46:80 check
-    server web-02 54.145.241.161:80 check
+    server web-01 34.207.58.78:80 check
+    server web-02 18.209.225.212:80 check
 
+frontend https_frontend
+    bind :443 ssl crt /etc/haproxy/certs/ meldevtech.tech.pem
+    mode http
+    option forwardfor
+    option http-server-close
+    option http-pretend-keepalive
+
+    acl is_http_request hdr(Host) -i meldevtech.tech
+
+    use_backend https_backend if is_http_request
+    

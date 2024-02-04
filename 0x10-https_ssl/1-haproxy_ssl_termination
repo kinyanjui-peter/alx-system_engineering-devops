@@ -17,13 +17,25 @@ defaults
     timeout client  50000
     timeout server  50000
 
+frontend hapfront
+    bind *:80
+    mode http
+    default_backend hapset
+
 frontend www-https
-    bind *:443 ssl crt /etc/letsencrypt/live/www.yourdomain.com/fullchain.pem
+    bind *:443 ssl crt /etc/letsencrypt/live/www.meldevtech.tech/fullchain.pem
     reqadd X-Forwarded-Proto:\ https
     default_backend www-backend
+
+backend hapset
+    mode http
+    balance roundrobin
+    server web-01 34.207.58.78:80 check
+    server web-02 18.209.225.212:80 check
 
 backend www-backend
     mode http
     balance roundrobin
     server web-01 34.207.58.78:80 check
     server web-02 18.209.225.212:80 check
+    
