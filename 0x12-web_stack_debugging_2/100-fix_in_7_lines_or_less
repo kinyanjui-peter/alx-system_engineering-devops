@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# running nginx as a nginx user
+
+#add a nginx user
+sudo adduser -r -s /bin/false nginx
+
+# give root priviledges to nginx
+usermod -aG sudo nginx
+
+#login to nginx user
+su -s /bin/bash -c 'cd ~' nginx
+
+# Configuration file for Nginx
+nginx_conf="/etc/nginx/sites-available/default"
+
+# Set Nginx to listen on all active IPs on port 8080
+sed -i 'listen/s/80 default_server/8080 default_server/' "$nginx_conf"
+
+service nginx restart
