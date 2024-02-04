@@ -2,13 +2,13 @@
 # running nginx as a nginx user
 
 #add a nginx user
-sudo adduser nginx
+sudo adduser -r -s /bin/false nginx
 
 # give root priviledges to nginx
 usermod -aG sudo nginx
 
 #login to nginx user
-sudo nginx
+su -s /bin/bash -c 'cd ~' nginx
 
 # Configuration file for Nginx
 nginx_conf="/etc/nginx/sites-available/default"
