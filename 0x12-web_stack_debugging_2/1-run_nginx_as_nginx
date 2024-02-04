@@ -8,7 +8,7 @@ sudo adduser nginx
 usermod -aG sudo nginx
 
 #login to nginx user
-su nginx
+sudo nginx
 
 # Configuration file for Nginx
 nginx_conf="/etc/nginx/sites-available/default"
