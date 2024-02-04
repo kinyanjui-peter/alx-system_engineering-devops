@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# bash script that accepts one argument whoami
+
+# check if the nimber of argument is one
+if [ "$#" -lt 1 ]; then
+    echo "Usage: $0 <enter a command>"
+    exit 1
+fi
+
+# accept one argument and execute
+eval "$1"
